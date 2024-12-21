@@ -1,0 +1,11 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: burlywood;
+    background-image: url("https://t4.ftcdn.net/jpg/02/42/47/01/360_F_242470151_KBDBZ2XxhMe1hyn2OI4wQTRY9iBA4cOE.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
