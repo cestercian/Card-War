@@ -1,11 +1,48 @@
 html, body {
     margin: 0;
     padding: 0;
+    background-image: url("https://media.istockphoto.com/id/1092139474/photo/empty-green-casino-poker-table-cloth-with-spotlight.jpg?s=612x612&w=0&k=20&c=0TwjfTAxxMdBPKBnnrhRDmsvYS7ui3Ly_u9HZms8QAc=");
+    font-family: "Exo 2", sans-serif;
+    height: 100vh;
 }
 
-body{
-    background-color: burlywood;
-    background-image: url("https://t4.ftcdn.net/jpg/02/42/47/01/360_F_242470151_KBDBZ2XxhMe1hyn2OI4wQTRY9iBA4cOE.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+button {
+    background-color: #FFF100;
+    cursor: pointer;
+    border: none;
+}
+
+button#new-deck {
+    align-self: flex-start;
+    padding: 5px;
+}
+
+button.draw {
+    font-size: 1.2em;
+    padding: 5px;
+    align-self: stretch;
+}
+
+div.card-slot {
+    border: 1px solid black;
+    border-radius: 5px;
+    height: 120px;
+    width: calc(120px * 5 / 7);
+}
+
+div.card-slot:nth-of-type(1) {
+    margin-bottom: 50px;
+}
+
+img.card {
+    width: 100%;
+    height: 100%;
 }
