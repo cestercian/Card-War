@@ -4,8 +4,6 @@ html, body {
     background-image: url("https://media.istockphoto.com/id/1092139474/photo/empty-green-casino-poker-table-cloth-with-spotlight.jpg?s=612x612&w=0&k=20&c=0TwjfTAxxMdBPKBnnrhRDmsvYS7ui3Ly_u9HZms8QAc=");
     font-family: "Exo 2", sans-serif;
     height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 body {
@@ -51,10 +49,15 @@ img.card {
 
 div.top {
     display: flex;
+    align-items: flex-start;
     align-self: flex-start;
 }
 
 div.top > p {
     margin: 0;
     margin-left: 10px;
+}
+
+button:disabled {
+    cursor: not-allowed;
 }

@@ -4,14 +4,17 @@ const newDeckBtn = document.getElementById("new-deck")
 const drawCardBtn = document.getElementById("draw-cards")
 const header = document.getElementById("header")
 const remainingText = document.getElementById("remaining")
+const computerWinCount = document.getElementById("Computer Wins")
+const userWinCoount = document.getElementById("You Win")
 
 function handleClick() {
     fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
         .then(res => res.json())
         .then(data => {
-            // console.log(data)
+            remainingText.textContent = `Remaining cards: ${data.remaining}`
             deckId = data.deck_id
             console.log(deckId)
+            drawCardBtn.disabled = false
         })
 }
 
@@ -28,22 +31,35 @@ drawCardBtn.addEventListener("click", () => {
             cardsContainer.children[1].innerHTML = `
                 <img src=${data.cards[1].image} class="card"  alt=""/>
             `
-            header.textContent = winO(data.cards[0].value, data.cards[1].value)
+            header.textContent = determineCardWinner(data.cards[0], data.cards[1])
+
+
+            if (data.remaining === 0) {
+                drawCardBtn.disabled = true
+            }
         })
 })
 
 
-function winO (card1, card2){
-    const rank = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "JACK", "QUEEN", "KING", "ACE"]
+let scoreOfComputer = 0
+let scoreOfUser = 0
 
-    let c1 = rank.indexOf(card1);  // c1 is now a number (index of card1)
-    let c2 = rank.indexOf(card2);  // c2 is now a number (index of card2)
+function determineCardWinner(card1, card2) {
+    const valueOptions = ["2", "3", "4", "5", "6", "7", "8", "9",
+        "10", "JACK", "QUEEN", "KING", "ACE"]
+    const card1ValueIndex = valueOptions.indexOf(card1.value)
+    const card2ValueIndex = valueOptions.indexOf(card2.value)
 
-    if(c1>c2){
-        return("Computer ki maa ka bhosda")
-    }else if (c2>c1){
-        return("You win")
-    }else{
-        return("draw")
+    if (card1ValueIndex > card2ValueIndex) {
+        scoreOfComputer++
+        computerWinCount.innerHTML = `Computer Wins ${scoreOfComputer}`
+        console.log(scoreOfComputer)
+        return "Computer ki maa ka bhosda"
+    } else if (card1ValueIndex < card2ValueIndex) {
+        scoreOfUser++
+        userWinCoount.innerHTML = `Your Wins ${scoreOfUser}`
+        return "You win"
+    } else {
+        return "War!"
     }
 }
