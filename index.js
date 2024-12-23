@@ -5,7 +5,7 @@ const drawCardBtn = document.getElementById("draw-cards")
 const header = document.getElementById("header")
 const remainingText = document.getElementById("remaining")
 const computerWinCount = document.getElementById("Computer Wins")
-const userWinCoount = document.getElementById("You Win")
+const userWinCount = document.getElementById("You Win")
 
 function handleClick() {
     fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
@@ -57,7 +57,7 @@ function determineCardWinner(card1, card2) {
         return "Computer ki maa ka bhosda"
     } else if (card1ValueIndex < card2ValueIndex) {
         scoreOfUser++
-        userWinCoount.innerHTML = `Your Wins ${scoreOfUser}`
+        userWinCount.innerHTML = `Your Wins ${scoreOfUser}`
         return "You win"
     } else {
         return "War!"
