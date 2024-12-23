@@ -4,63 +4,141 @@ html, body {
     background-image: url("table.png");
     font-family: "Exo 2", sans-serif;
     height: 100vh;
+    background-size: cover;
+    background-position: center;
+    overflow-x: hidden;
 }
 
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center; /* Ensures vertical centering */
     color: white;
+    text-align: center;
+    padding: 10px;
+    gap: 20px; /* Adds spacing between elements */
 }
 
 button {
     background-color: #FFF100;
     cursor: pointer;
     border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.2em;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+}
+
+button:hover:not(:disabled) {
+    background-color: #FFDD00;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    background-color: #ccc;
 }
 
 button#new-deck {
     align-self: flex-start;
-    padding: 5px;
+    font-size: 1em;
+    margin: 10px 0;
 }
 
 button.draw {
-    font-size: 1.2em;
-    padding: 5px;
-    align-self: stretch;
+    font-size: 1.3em;
+    padding: 15px;
+    max-width: 90%;
+    margin: 0 auto; /* Center horizontally */
+    align-self: center; /* Center within the flex container */
 }
 
 div.card-slot {
     border: 1px solid black;
     border-radius: 5px;
-    height: 120px;
-    width: calc(120px * 5 / 7);
-}
-
-div.card-slot:nth-of-type(1) {
-    margin-bottom: 10px;
+    height: 15vh; /* Dynamically scales based on viewport */
+    width: calc(15vh * 5 / 7); /* Maintains card aspect ratio */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 img.card {
     width: 100%;
     height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
 }
 
 div.top {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column;
+    align-items: center;
     align-self: flex-start;
+    gap: 5px;
+    width: 100%;
 }
 
 div.top > p {
-    margin: 0 0 0 10px;
-}
-
-button:disabled {
-    cursor: not-allowed;
+    margin: 5px 0;
+    font-size: 1.1em;
 }
 
 h2 {
-    margin: 10px;
+    margin: 15px;
+    font-size: 2em;
+}
+
+.remaining-text {
+    font-size: 1.2em;
+    margin: 10px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    div.card-slot {
+        height: 12vh;
+        width: calc(12vh * 5 / 7);
+    }
+
+    button {
+        padding: 8px 16px;
+        font-size: 1em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    div.top > p {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    div.card-slot {
+        height: 10vh;
+        width: calc(10vh * 5 / 7);
+    }
+
+    button {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    div.top {
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    div.top > p {
+        font-size: 0.9em;
+    }
 }
