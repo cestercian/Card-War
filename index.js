@@ -36,7 +36,7 @@ drawCardBtn.addEventListener("click", () => {
 
             if (data.remaining === 0) {
                 drawCardBtn.disabled = true
-                if(cscoreOfComputer > scoreOfUser){
+                if(scoreOfComputer > scoreOfUser){
                     header.innerHTML = `You win !`
                 }else{
                     header.innerHTML = `Computer wins !`}
