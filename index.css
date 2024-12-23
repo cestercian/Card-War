@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    background-image: url("https://media.istockphoto.com/id/1092139474/photo/empty-green-casino-poker-table-cloth-with-spotlight.jpg?s=612x612&w=0&k=20&c=0TwjfTAxxMdBPKBnnrhRDmsvYS7ui3Ly_u9HZms8QAc=");
+    background-image: url("table.png");
     font-family: "Exo 2", sans-serif;
     height: 100vh;
 }
@@ -39,7 +39,7 @@ div.card-slot {
 }
 
 div.card-slot:nth-of-type(1) {
-    margin-bottom: 50px;
+    margin-bottom: 10px;
 }
 
 img.card {
@@ -54,10 +54,13 @@ div.top {
 }
 
 div.top > p {
-    margin: 0;
-    margin-left: 10px;
+    margin: 0 0 0 10px;
 }
 
 button:disabled {
     cursor: not-allowed;
+}
+
+h2 {
+    margin: 10px;
 }
